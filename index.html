@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Bank</title>
+  </head>
+  <body>
+    <main>
+      <!-- Sign Up Form -->
+      <form class="signup-form hidden" autocomplete="off">
+        <h3>Signup</h3>
+        <input
+          type="text"
+          name="user-s"
+          id="user-s"
+          placeholder="User"
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          id="password-s"
+          placeholder="Password"
+          required
+        />
+        <input
+          type="password"
+          name="con-password"
+          id="con-password"
+          placeholder="Confirm password"
+          required
+        />
+        <button type="submit">
+          <img src="icon/arrow-right-thin.svg" class="icon" alt="" />
+        </button>
+      </form>
+      <!-- Login Form -->
+      <form class="login-form" autocomplete="off">
+        <h3>Login</h3>
+        <input type="text" name="user" id="user" placeholder="User" required />
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Password"
+          required
+        />
+        <p class="invalid-message hidden">
+          Invalid username or password.
+          <a href="#" class="new-account">Create a new account</a>
+        </p>
+        <button type="submit">
+          <img src="icon/arrow-right-thin.svg" class="icon" alt="" />
+        </button>
+      </form>
+      <div class="container hidden">
+        <p class="welcome"></p>
+        <section class="balance-section">
+          <div class="current-box">
+            <div class="current-label">Current Balance</div>
+            <div class="current-date"></div>
+          </div>
+          <div class="balance"></div>
+        </section>
+        <section class="main-section">
+          <section class="transactions">
+            <div class="transaction-card">
+              <div>
+                <div class="transaction-type deposit">DEPOSIT</div>
+                <div class="transaction-date">Today</div>
+              </div>
+              <div class="transaction-amount">$1000</div>
+            </div>
+          </section>
+          <section class="functions">
+            <div class="transfer-money">
+              <h5>Transfer Money</h5>
+              <form class="transfer-money-form" autocomplete="off">
+                <div class="form-raw">
+                  <input type="text" name="" id="transfer-to" />
+                  <label for="">Transfer To</label>
+                </div>
+                <div class="form-raw">
+                  <input type="number" name="" id="transfer-amount" />
+                  <label for="">Amount</label>
+                </div>
+                <div class="form-raw">
+                  <button type="submit">
+                    <img src="icon/arrow-right-thin.svg" alt="" />
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div class="request-loan">
+              <h5>Request Loan</h5>
+              <form class="request-loan-form" autocomplete="off">
+                <div class="form-raw">
+                  <input type="number" name="" id="loan-amount" />
+                  <label for="">Amount</label>
+                </div>
+                <div class="form-raw">
+                  <button type="submit">
+                    <img src="icon/arrow-right-thin.svg" alt="" />
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div class="close-account">
+              <h5>Close Account</h5>
+              <form class="close-account-form" autocomplete="off">
+                <div class="form-raw">
+                  <input type="text" name="" id="confirm-user" />
+                  <label for="">Confirm user</label>
+                </div>
+                <div class="form-raw">
+                  <input type="password" name="" id="confirm-password" />
+                  <label for="">Confirm password</label>
+                </div>
+                <div class="form-raw">
+                  <button type="submit">
+                    <img src="icon/arrow-right-thin.svg" alt="" />
+                  </button>
+                </div>
+              </form>
+            </div>
+          </section>
+        </section>
+        <section class="footer">
+          <div class="left">
+            <div>IN <span class="in"> $20,000</span></div>
+            <div>OUT <span class="out"> $5,000</span></div>
+            <div>INTEREST <span class="interest"> $200</span></div>
+            <div class="sort">
+              <img src="icon/arrow-down-thin.svg" />
+              SORT
+            </div>
+          </div>
+          <div class="right">
+            <div>
+              You will be logged out in <span class="logout">9:59</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

@@ -122,7 +122,7 @@ const showTime = function () {
 const showDate = function () {
   const date = new Date();
   const day = padZero(date.getDate());
-  const month = padZero(date.getMonth());
+  const month = padZero(date.getMonth() + 1);
   const year = date.getFullYear();
   const hours = date.getHours();
   const ampm = hours > 12 ? "PM" : "AM";
@@ -245,6 +245,7 @@ const showSignupForm = function () {
   loginForm.classList.add("hidden");
   signupForm.classList.remove("hidden");
 };
+
 const signupHandler = function (e) {
   e.preventDefault();
   const user = e.target.querySelector("#user-s").value.toLowerCase();

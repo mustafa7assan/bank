@@ -66,6 +66,8 @@ const accounts = [
 ];
 // Application State
 let currentAccount;
+let timeout;
+let timerID;
 // Handler
 
 const loginHandler = function (e) {
@@ -81,6 +83,7 @@ const loginHandler = function (e) {
     e.target.classList.add("hidden");
     invalidMessage.classList.add("hidden");
     currentAccount = account;
+    timeout = 600;
     displayUI();
     e.target.reset();
   } else {
@@ -94,13 +97,29 @@ const displayUI = function () {
     currentAccount.owner[0],
     currentAccount.owner[0].toUpperCase()
   )}!`;
+  timerID = setInterval(() => {
+    if (timeout === 0) {
+      mainContainer.classList.add("hidden");
+      loginForm.classList.remove("hidden");
+      clearInterval(timerID);
+    }
+    showTime();
+    timeout--;
+  }, 1000);
   showDate();
   showBalance();
   displayTransactions(currentAccount.transactions);
 };
 
+const padZero = (value) => value.toString().padStart(2, "0");
+
+const showTime = function () {
+  const minutes = Math.floor(timeout / 60);
+  const seconds = timeout - minutes * 60;
+  logoutLabel.textContent = `${padZero(minutes)}:${padZero(seconds)}`;
+};
+
 const showDate = function () {
-  const padZero = (value) => value.toString().padStart(2, "0");
   const date = new Date();
   const day = padZero(date.getDate());
   const month = padZero(date.getMonth());
@@ -217,6 +236,8 @@ const closeAccountHandler = function (e) {
     mainContainer.classList.add("hidden");
     loginForm.classList.remove("hidden");
     currentAccount = null;
+    timeout = 600;
+    clearInterval(timerID);
     e.target.reset();
   }
 };
@@ -261,6 +282,7 @@ const dateLabel = document.querySelector(".current-date");
 const inLabel = document.querySelector(".in");
 const outLabel = document.querySelector(".out");
 const interestLabel = document.querySelector(".interest");
+const logoutLabel = document.querySelector(".logout");
 const mainContainer = document.querySelector(".container");
 const transactionsContainer = document.querySelector(".transactions");
 const invalidMessage = document.querySelector(".invalid-message");

@@ -97,12 +97,13 @@ main {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 15px;
-  height: 400px;
+  height: 500px;
 }
 .transactions {
   grid-column: span 3;
   border-radius: 15px;
   overflow-y: scroll;
+  height: 100%;
 }
 
 .transaction-card {
@@ -229,6 +230,7 @@ main {
 }
 .logout {
   font-weight: 600;
+  padding: 0 3px;
 }
 .sort {
   display: flex;

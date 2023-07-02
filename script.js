@@ -226,9 +226,7 @@ const transferMoney = function (receiver, amount) {
 const closeAccountHandler = function (e) {
   e.preventDefault();
   const user = e.target.querySelector("#confirm-user").value.toLowerCase();
-  const password = Number(
-    e.target.querySelector("#confirm-password").value.toLowerCase()
-  );
+  const password = Number(e.target.querySelector("#confirm-password").value);
   const account = accounts.find(
     (account) => account.owner === user && account.password === password
   );
@@ -243,14 +241,15 @@ const closeAccountHandler = function (e) {
 };
 
 const showSignupForm = function () {
+  loginForm.reset();
   loginForm.classList.add("hidden");
   signupForm.classList.remove("hidden");
 };
 const signupHandler = function (e) {
   e.preventDefault();
   const user = e.target.querySelector("#user-s").value.toLowerCase();
-  const password = e.target.querySelector("#password-s").value;
-  const passwordConfirmation = e.target.querySelector("#con-password").value;
+  const password = +e.target.querySelector("#password-s").value;
+  const passwordConfirmation = +e.target.querySelector("#con-password").value;
   const account = accounts.find(
     (account) => account.owner === user && account.password === password
   );
